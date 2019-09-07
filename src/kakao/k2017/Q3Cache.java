@@ -2,6 +2,10 @@ package kakao.k2017;
 
 import java.util.*;
 
+/**
+ * https://tech.kakao.com/2017/09/27/kakao-blind-recruitment-round-1/
+ * Question : https://jay-ji.tistory.com/13?category=732905
+ */
 public class Q3Cache {
 
     public int solution(int cacheSize, String[] cities) {
