@@ -1,5 +1,6 @@
 package lib.algo.sort;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -84,6 +85,43 @@ public class StringLib {
         return false;
     }
 
+    // 자카드 유사도
+    public double getJakad(String s1, String s2) {
+        if(isBlank(s1) || isBlank(s2))
+            return 0.0;
+
+        double d = 0.0;
+        s1 = s1.toUpperCase().replaceAll(" ", "");
+        s2 = s2.toUpperCase().replaceAll(" ", "");
+
+        List<String> list1 = new ArrayList<>();
+        List<String> list2 = new ArrayList<>();
+        for(int i=0; i<s1.length()-1; i++) {
+            list1.add(s1.substring(i, i+2));
+        }
+
+        for(int i=0; i<s2.length()-1; i++) {
+            list2.add(s2.substring(i, i+2));
+        }
+
+//        System.out.println(list1);
+        List<String> min = new ArrayList<>();
+        List<String> max = new ArrayList<>();
+        for(String s : list1) {
+            if(list2.contains(s)) {
+                min.add(s);
+            }
+            else {
+                max.add(s);
+            }
+        }
+        max.addAll(list1);
+//        System.out.println(min);
+//        System.out.println(max);
+
+        return (double) (min.size() * 65536 ) / max.size() ;
+    }
+
     public static void main(String[] args) {
         String testVal = "This is my String JY Park";
 
@@ -116,6 +154,10 @@ public class StringLib {
         palindrome = "135753166";
         System.out.println("isPalindrome >>> " + palindrome + " : " + sort.isPalindrome(palindrome));
 
+        System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        System.out.println(sort.getJakad("FRANCE", "FRENCH"));
+        System.out.println(sort.getJakad("aaaa", "AAAA12"));
+        System.out.println(sort.getJakad("handshake", "shake hands"));
     }
 
 }
