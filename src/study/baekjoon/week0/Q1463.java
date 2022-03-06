@@ -1,4 +1,4 @@
-package lib.algo.baekjoon;
+package study.baekjoon.week0;
 
 /**
  * 정수 X에 사용할 수 있는 연산은 다음과 같이 세 가지 이다.

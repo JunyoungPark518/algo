@@ -1,4 +1,4 @@
-package study.week1;
+package study.baekjoon.week1;
 
 import java.util.HashSet;
 import java.util.List;
